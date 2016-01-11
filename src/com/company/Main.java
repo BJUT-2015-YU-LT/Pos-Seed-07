@@ -8,6 +8,7 @@ public class Main {
     {
         PrintGoodList pt=new PrintGoodList();
         pt.PrintList();   //需求一和二
-        pt.PrintIndex();  //需求
+        pt.PrintIndex();  //需求二、、、、
+        System.out.println();
     }
 }
