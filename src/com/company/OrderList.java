@@ -2,6 +2,8 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 
 /**
@@ -12,7 +14,7 @@ public class OrderList extends JFrame {
     private JPanel J2;
     private JTextArea JT1;
     private JScrollPane pane;
-    private JButton Commit;
+    public static JButton Commit;
     private JButton Cancel;
     private Container contentPane;
     private JFrame orderList;
@@ -36,6 +38,19 @@ public class OrderList extends JFrame {
         contentPane.add(J1,BorderLayout.SOUTH);
         contentPane.add(pane,BorderLayout.CENTER);
         JT1.setEnabled(false);
+
+        Commit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                orderList.dispose();
+            }
+        });
+        Cancel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                orderList.dispose();
+            }
+        });
 
     }
 
@@ -61,6 +76,7 @@ public class OrderList extends JFrame {
             JT1.append("\n");
             DiscountPrice+=value*good.getDiscount();
         }
+        JT1.append("总计:"+DiscountPrice+"(元)");
         return DiscountPrice;
     }
 
@@ -87,4 +103,5 @@ public class OrderList extends JFrame {
         }
         return null;
     }
+
 }

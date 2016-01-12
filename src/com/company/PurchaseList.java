@@ -14,12 +14,14 @@ public class PurchaseList extends JFrame  {
 
     private  ArrayList<Goods> goodsList;  //商品列表
     private  ArrayList<Goods> purchaseList;
+    private  JFrame jframe;
+    private  OrderList orderList;
     PurchaseList(){
         ExeSQL sql1=new ExeSQL();
         sql1.connSQL();
         goodsList = sql1.GetGoodList();
         purchaseList =new ArrayList<Goods>();
-        JFrame jframe=new JFrame("超市购物管理");
+        jframe=new JFrame("超市购物管理");
         JMenuBar jmb=new JMenuBar();
         JMenu menu_shoping=new JMenu("查看购买商品");
         JMenu menu_user=new JMenu("会员管理");
@@ -37,7 +39,7 @@ public class PurchaseList extends JFrame  {
         table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         JScrollPane pane=new JScrollPane(table);
         Container contentPane=jframe.getContentPane();
-        contentPane.setLayout(new FlowLayout());
+        contentPane.setLayout(new BorderLayout());
         JComboBox jcb1=new JComboBox<String>();
         jcb1.addItem("请选择");
         for(int i = 0; i < goodsList.size(); i++)
@@ -47,9 +49,10 @@ public class PurchaseList extends JFrame  {
         }
         JButton search=new JButton("结算");
         JButton add=new JButton("添加到购物车");
-        contentPane.add(jcb1);
-        contentPane.add(add);
-        contentPane.add(search);
+        JPanel J1 =new JPanel();
+        J1.add(jcb1);
+        J1.add(add);
+        J1.add(search);
 
         jmb.add(menu_current_user);
         jmb.add(menu_shoping);
@@ -57,7 +60,8 @@ public class PurchaseList extends JFrame  {
         jmb.add(menu_store);
         jmb.add(menu_exit);
         jframe.setJMenuBar(jmb);
-        jframe.add(pane,BorderLayout.NORTH);
+        jframe.add(J1,BorderLayout.NORTH);
+        jframe.add(pane,BorderLayout.CENTER);
         jframe.setSize(600, 500);
         jframe.setLocation(300, 200);
 
@@ -81,10 +85,18 @@ public class PurchaseList extends JFrame  {
         search.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-               OrderList orderList = new OrderList();
-               orderList.PrintOrderList(purchaseList);
+                orderList = new OrderList();
+                orderList.PrintOrderList(purchaseList);
+                orderList.Commit.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e){
+                        tableModel.setRowCount(0);
+                        purchaseList.clear();
+                    }
+                });
             }
         });
+
     }
 
     public static Goods GetGoodByName(String Name,ArrayList<Goods> list) {
