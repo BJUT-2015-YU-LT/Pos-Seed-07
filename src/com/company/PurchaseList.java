@@ -5,7 +5,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Created by dell on 2016/1/12.
@@ -18,6 +18,7 @@ public class PurchaseList extends JFrame  {
         ExeSQL sql1=new ExeSQL();
         sql1.connSQL();
         goodsList = sql1.GetGoodList();
+        purchaseList =new ArrayList<Goods>();
         JFrame jframe=new JFrame("超市购物管理");
         JMenuBar jmb=new JMenuBar();
         JMenu menu_shoping=new JMenu("查看购买商品");
@@ -64,7 +65,6 @@ public class PurchaseList extends JFrame  {
         add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                purchaseList =new ArrayList<Goods>();
                 if(jcb1.getSelectedItem().toString()!="请选择") {
                     Goods newgood2= GetGoodByName(jcb1.getSelectedItem().toString(),goodsList);
                     Goods newgood = sql1.GetGoodByBarCode(newgood2.getBarcode());
@@ -82,6 +82,7 @@ public class PurchaseList extends JFrame  {
             @Override
             public void actionPerformed(ActionEvent e){
                OrderList orderList = new OrderList();
+               orderList.PrintOrderList(purchaseList);
             }
         });
     }
@@ -94,6 +95,8 @@ public class PurchaseList extends JFrame  {
         }
         return null;
     }
+
+
 
 
 }

@@ -2,31 +2,89 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.*;
 
 /**
  * Created by dell on 2016/1/12.
  */
 public class OrderList extends JFrame {
+    private JPanel J1;
+    private JPanel J2;
+    private JTextArea JT1;
+    private JScrollPane pane;
+    private JButton Commit;
+    private JButton Cancel;
+    private Container contentPane;
+    private JFrame orderList;
     OrderList(){
-        JFrame orderList= new JFrame("购物清单列表");
+        orderList= new JFrame("购物清单列表");
         orderList.setSize(600, 500);
         orderList.setLocation(300, 200);
         orderList.setVisible(true);
-        Container contentPane=orderList.getContentPane();
+        contentPane=orderList.getContentPane();
         contentPane.setLayout(new BorderLayout());
-        JPanel J1= new JPanel();
-        JPanel J2= new JPanel();
-        JTextArea JT1= new JTextArea();
+        J1= new JPanel();
+        J2= new JPanel();
+        JT1= new JTextArea();
         J1.setSize(300,100);
         JT1.setSize(600,400);
-        JScrollPane pane=new JScrollPane(JT1);
-        JButton Commit=new JButton("确认");
-        JButton Cancel=new JButton("取消");
+        pane=new JScrollPane(JT1);
+        Commit=new JButton("确认");
+        Cancel=new JButton("取消");
         J1.add(Commit);
         J1.add(Cancel);
         contentPane.add(J1,BorderLayout.SOUTH);
         contentPane.add(pane,BorderLayout.CENTER);
         JT1.setEnabled(false);
 
+    }
+
+    //打印归类后的OrderList并返回折扣价
+    public Double PrintOrderList(ArrayList<Goods> GoodList) {
+        Double DiscountPrice=0.0;
+        Map<String, Double> map;
+        map = sum(GoodList);
+        Set<String> set = map.keySet();
+        JT1.append("***商店购物清单***");
+        JT1.append("\n");
+        for (Iterator<String> iter = set.iterator(); iter.hasNext();)
+        {
+            Goods good=new Goods();
+            String key = (String)iter.next();
+            good=GetGoodByBarCode(key,GoodList);
+            Double value = (Double)map.get(key);
+            JT1.append("商品BarCode:   "+key+"   "+
+                    "名称:   "+good.getName()+"   "+
+                    "数量:   "+(int)(value/good.getPrice())+"   "+
+                    "单价:   "+good.getPrice()+"   "+
+                    "小计:   " + value*good.getDiscount());
+            JT1.append("\n");
+            DiscountPrice+=value*good.getDiscount();
+        }
+        return DiscountPrice;
+    }
+
+    //用Map 归类同名商品为一类
+    public Map<String, Double> sum(ArrayList<Goods> list) {
+        Map<String, Double> map = new LinkedHashMap<String, Double>();
+        for (Goods exp:list)
+        {
+            if(map.containsKey(exp.getBarcode())){
+                double price=map.get(exp.getBarcode());
+                map.put(exp.getBarcode(), exp.getPrice()+price);
+            }else{
+                map.put(exp.getBarcode(), exp.getPrice());
+            }
+        }
+        return map;
+    }
+    //通过BarCode返回Good
+    public Goods GetGoodByBarCode(String BarCode,ArrayList<Goods> list) {
+        for (Goods exp:list){
+            if (exp.getBarcode().equals(BarCode)){
+                return exp;
+            }
+        }
+        return null;
     }
 }
