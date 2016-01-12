@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -55,8 +56,9 @@ public class OrderList extends JFrame {
     }
 
     //打印归类后的OrderList并返回折扣价
-    public Double PrintOrderList(ArrayList<Goods> GoodList) {
+    public void PrintOrderList(ArrayList<Goods> GoodList) {
         Double DiscountPrice=0.0;
+        Double Price=0.0;
         Map<String, Double> map;
         map = sum(GoodList);
         Set<String> set = map.keySet();
@@ -75,9 +77,17 @@ public class OrderList extends JFrame {
                     "小计:   " + value*good.getDiscount());
             JT1.append("\n");
             DiscountPrice+=value*good.getDiscount();
+            Price+=value;
         }
-        JT1.append("总计:"+DiscountPrice+"(元)");
-        return DiscountPrice;
+        JT1.append("总计:"+DiscountPrice+"(元)\n");
+        JT1.append("节省了"+ToBigDecimal(Price-DiscountPrice)+"(元)\n");
+    }
+
+    //Double 返回2位
+    public Double ToBigDecimal(Double f) {
+        BigDecimal b=new BigDecimal(f);
+        double f1=b.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+        return f1;
     }
 
     //用Map 归类同名商品为一类
