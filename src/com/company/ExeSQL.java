@@ -9,26 +9,26 @@ import java.util.ArrayList;
 public class ExeSQL {
 
     private Connection conn = null;
-    PreparedStatement statement = null;
-    private ResultSet rs=null;
+    private PreparedStatement statement = null;
+    private ResultSet rs = null;
 
     void connSQL() {
         String url = "jdbc:mysql://localhost:3306/pos";
         String username = "root";
         String password = ""; // 加载驱动程序以连接数据库
         try {
-            Class.forName("com.mysql.jdbc.Driver" );
-            conn = DriverManager.getConnection( url,username, password );
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(url, username, password);
         }
         //捕获加载驱动程序异常
-        catch ( ClassNotFoundException cnfex ) {
+        catch (ClassNotFoundException cnfex) {
             System.err.println(
-                    "装载 JDBC/ODBC 驱动程序失败。" );
+                    "装载 JDBC/ODBC 驱动程序失败。");
             cnfex.printStackTrace();
         }
         //捕获连接数据库异常
-        catch ( SQLException sqlex ) {
-            System.err.println( "无法连接数据库" );
+        catch (SQLException sqlex) {
+            System.err.println("无法连接数据库");
             sqlex.printStackTrace();
         }
     }
@@ -44,16 +44,13 @@ public class ExeSQL {
         }
     }
 
-
-    public void GetGoodList(){
+    public ArrayList<Goods> GetGoodList() {
         String sql;
-        sql="select * from good";
+        sql = "select * from good";
         rs = selectSQL(sql);
-        System.out.println("Barcode" + "\t\t\t\t" + " Name"+"\t\t\t"+"Unit"+"\t\t\t"+"Price"+"\t\t\t"+"Discount");
         ArrayList<Goods> goodsList = new ArrayList<Goods>();
         try {
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Goods goods = new Goods();
                 goods.setBarcode(rs.getString("barcode"));
                 goods.setName(rs.getString("name"));
@@ -69,30 +66,19 @@ public class ExeSQL {
             System.out.println("显示出错。");
             e.printStackTrace();
         }
-        Double TotalPrice=0.0;
-        for(int i = 0; i < goodsList.size(); i++)
-        {
-            Goods emp = goodsList.get(i);
-            System.out.println("barcode: "
-                    +emp.getBarcode()+"     name: "
-                    + emp.getName() + "     unit: "
-                    + emp.getUnit() + "     Price: " + emp.getPrice()
-                    +"      Discount: "+emp.getDiscount());
-            TotalPrice+=emp.getPrice();
-        }
-
+        return goodsList;
     }
 
 
     ResultSet selectSQL(String sql) {
-        ResultSet rs = null;
+        ResultSet r1 = null;
         try {
             statement = conn.prepareStatement(sql);
-            rs = statement.executeQuery(sql);
+            r1 = statement.executeQuery(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return rs;
+        return r1;
     }
 
     //execute delete language
@@ -141,5 +127,27 @@ public class ExeSQL {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public Goods GetGoodByBarCode(String Name) {
+        String sql = "select * from good where barcode='"+Name+"'";
+        rs = selectSQL(sql);
+        Goods goods = new Goods();
+        try {
+            while (rs.next()) {
+                goods.setBarcode(rs.getString("barcode"));
+                goods.setName(rs.getString("name"));
+                goods.setUnit(rs.getString("unit"));
+                goods.setPrice(rs.getDouble("price"));
+                goods.setDiscount(rs.getDouble("discount"));
+            }
+        } catch (SQLException e) {
+            System.out.println("显示时数据库出错。");
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("显示出错。");
+            e.printStackTrace();
+        }
+        return goods;
     }
 }
