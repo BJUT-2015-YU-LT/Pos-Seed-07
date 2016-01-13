@@ -152,4 +152,23 @@ public class ExeSQL {
         }
         return goods;
     }
+
+    public Users GetUserById(String Id){
+        String sql = "select * from vip_user where Vip_id='"+Id+"'";
+        rs = selectSQL(sql);
+        Users users =new Users();
+        try {
+            while (rs.next()) {
+                users.setVipId(rs.getString("Vip_id"));
+                users.setVipName(rs.getString("Name"));
+            }
+        } catch (SQLException e) {
+            System.out.println("显示时数据库出错。");
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("显示出错。");
+            e.printStackTrace();
+        }
+        return users;
+    }
 }

@@ -17,8 +17,11 @@ public class OrderList extends JFrame {
     private JScrollPane pane;
     public static JButton Commit;
     private JButton Cancel;
+    private JButton Vip;
     private Container contentPane;
     private JFrame orderList;
+    Map<String, Double> map; //此时Map中只有5种不重复的Good
+    ArrayList<Goods> GiveList;
     OrderList(){
         orderList= new JFrame("购物清单列表");
         orderList.setSize(600, 500);
@@ -33,8 +36,10 @@ public class OrderList extends JFrame {
         JT1.setSize(600,400);
         pane=new JScrollPane(JT1);
         Commit=new JButton("非会员入口");
+        Vip=new JButton("会员入口");
         Cancel=new JButton("取消");
         J1.add(Commit);
+        J1.add(Vip);
         J1.add(Cancel);
         contentPane.add(J1,BorderLayout.SOUTH);
         contentPane.add(pane,BorderLayout.CENTER);
@@ -53,6 +58,13 @@ public class OrderList extends JFrame {
             }
         });
 
+        Vip.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                Vip v1 =new Vip();
+            }
+        });
+
     }
 
     //打印归类后的OrderList并返回折扣价
@@ -61,9 +73,8 @@ public class OrderList extends JFrame {
         Double Price=0.0;          //存总价
         Double GivePrice=0.0;      //存赠送商品的总价
         int giveNum=0;
-        Map<String, Double> map; //此时Map中只有5种不重复的Good
         map = sum(GoodList);
-        ArrayList<Goods> GiveList=new ArrayList<Goods>();
+        GiveList=new ArrayList<Goods>();
         Set<String> set = map.keySet();
         JT1.append("***商店购物清单***");
         JT1.append("\n");
