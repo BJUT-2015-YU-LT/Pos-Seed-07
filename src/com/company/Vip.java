@@ -80,13 +80,13 @@ public class Vip extends JFrame {
 				}
 				else{
 					lblNewLabel.setText("欢迎您,"+users.getVipName());
-					OrderList orderList2=new OrderList(users.getVipName());
-					orderList2.PrintVipOrderList(GoodList);
+					OrderList orderList2=new OrderList(users);
+					int Score=orderList2.PrintVipOrderList(GoodList);
+					String sql="UPDATE vip_user SET vip_user.Score = '"+Score+"' WHERE Vip_id='"+users.getVipId()+"'";
+					sql1.updateSQL(sql);
 				}
 			}
 		});
-
-
 	}
 
 	public ArrayList<Goods> getGoodList() {

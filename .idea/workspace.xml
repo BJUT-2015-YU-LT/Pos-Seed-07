@@ -67,48 +67,57 @@
         <entry file="file://$PROJECT_DIR$/src/com/company/ExeSQL.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="60" selection-start-line="60" selection-start-column="60" selection-end-line="60" selection-end-column="60" />
+              <caret line="158" column="7" selection-start-line="158" selection-start-column="7" selection-end-line="158" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#deleteSQL#0;class#ExeSQL#0" expanded="false" />
                 <element signature="method#updateSQL#0;class#ExeSQL#0" expanded="false" />
-                <marker date="1452666100822" expanded="true" signature="1234:1248" placeholder="select * fro... student" />
-                <marker date="1452666100822" expanded="true" signature="3875:3909" placeholder="select * fro... good" />
-                <marker date="1452666100822" expanded="true" signature="3876:3893" placeholder="SELECT * FRO... good" />
+                <marker date="1452670965514" expanded="true" signature="1234:1248" placeholder="select * fro... student" />
+                <marker date="1452670965514" expanded="true" signature="3875:3909" placeholder="select * fro... good" />
+                <marker date="1452670965514" expanded="true" signature="3876:3893" placeholder="SELECT * FRO... good" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Vip.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/Vip.java">
+      <file leaf-file-name="Users.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Users.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="82" column="75" selection-start-line="82" selection-start-column="75" selection-end-line="82" selection-end-column="75" />
+              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Vip.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Vip.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.64300627">
+              <caret line="85" column="40" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2465#2466#0" expanded="true" />
-                <element signature="e#2487#2488#0" expanded="true" />
-                <element signature="e#2542#2543#0" expanded="true" />
-                <element signature="e#2568#2569#0" expanded="true" />
+                <element signature="e#2590#2591#0" expanded="true" />
+                <element signature="e#2612#2613#0" expanded="true" />
+                <element signature="e#2667#2668#0" expanded="true" />
+                <element signature="e#2693#2694#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderList.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OrderList.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/OrderList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68267226">
-              <caret line="259" column="78" selection-start-line="259" selection-start-column="78" selection-end-line="259" selection-end-column="78" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="289" column="5" selection-start-line="289" selection-start-column="5" selection-end-line="289" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1918#1919#0" expanded="true" />
-                <element signature="e#1976#1977#0" expanded="true" />
+                <element signature="e#2097#2098#0" expanded="true" />
+                <element signature="e#2155#2156#0" expanded="true" />
                 <element signature="method#ToBigDecimal#0;class#OrderList#0" expanded="false" />
-                <element signature="e#5661#5677#0" expanded="true" />
-                <element signature="e#6157#6173#0" expanded="true" />
-                <element signature="method#GetGoodByBarCode#0;class#OrderList#0" expanded="false" />
+                <element signature="e#6034#6050#0" expanded="true" />
+                <element signature="e#6530#6546#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -156,12 +165,12 @@
         <option value="$PROJECT_DIR$/src/com/company/Test.java" />
         <option value="$PROJECT_DIR$/src/com/company/PurchaseList.java" />
         <option value="$PROJECT_DIR$/src/com/company/CatLogin.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Users.java" />
         <option value="$PROJECT_DIR$/src/com/company/VipOrderList2.java" />
         <option value="$PROJECT_DIR$/src/com/company/Goods.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Vip.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Users.java" />
         <option value="$PROJECT_DIR$/src/com/company/ExeSQL.java" />
         <option value="$PROJECT_DIR$/src/com/company/OrderList.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Vip.java" />
       </list>
     </option>
   </component>
@@ -710,12 +719,12 @@
       <workItem from="1452525594399" duration="6855000" />
       <workItem from="1452533218971" duration="803000" />
       <workItem from="1452567419647" duration="35444000" />
-      <workItem from="1452651880832" duration="15184000" />
+      <workItem from="1452651880832" duration="17793000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62698000" />
+    <option name="totallyTimeSpent" value="65307000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -796,9 +805,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#deleteSQL#0;class#ExeSQL#0" expanded="false" />
             <element signature="method#updateSQL#0;class#ExeSQL#0" expanded="false" />
-            <marker date="1452666100822" expanded="true" signature="1234:1248" placeholder="select * fro... student" />
-            <marker date="1452666100822" expanded="true" signature="3875:3909" placeholder="select * fro... good" />
-            <marker date="1452666100822" expanded="true" signature="3876:3893" placeholder="SELECT * FRO... good" />
+            <marker date="1452670965514" expanded="true" signature="1234:1248" placeholder="select * fro... student" />
+            <marker date="1452670965514" expanded="true" signature="3875:3909" placeholder="select * fro... good" />
+            <marker date="1452670965514" expanded="true" signature="3876:3893" placeholder="SELECT * FRO... good" />
           </folding>
         </state>
       </provider>
@@ -828,9 +837,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#deleteSQL#0;class#ExeSQL#0" expanded="false" />
             <element signature="method#updateSQL#0;class#ExeSQL#0" expanded="false" />
-            <marker date="1452666100822" expanded="true" signature="1234:1248" placeholder="select * fro... student" />
-            <marker date="1452666100822" expanded="true" signature="3875:3909" placeholder="select * fro... good" />
-            <marker date="1452666100822" expanded="true" signature="3876:3893" placeholder="SELECT * FRO... good" />
+            <marker date="1452670965514" expanded="true" signature="1234:1248" placeholder="select * fro... student" />
+            <marker date="1452670965514" expanded="true" signature="3875:3909" placeholder="select * fro... good" />
+            <marker date="1452670965514" expanded="true" signature="3876:3893" placeholder="SELECT * FRO... good" />
           </folding>
         </state>
       </provider>
@@ -860,9 +869,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#deleteSQL#0;class#ExeSQL#0" expanded="false" />
             <element signature="method#updateSQL#0;class#ExeSQL#0" expanded="false" />
-            <marker date="1452666100822" expanded="true" signature="1234:1248" placeholder="select * fro... student" />
-            <marker date="1452666100822" expanded="true" signature="3875:3909" placeholder="select * fro... good" />
-            <marker date="1452666100822" expanded="true" signature="3876:3893" placeholder="SELECT * FRO... good" />
+            <marker date="1452670965514" expanded="true" signature="1234:1248" placeholder="select * fro... student" />
+            <marker date="1452670965514" expanded="true" signature="3875:3909" placeholder="select * fro... good" />
+            <marker date="1452670965514" expanded="true" signature="3876:3893" placeholder="SELECT * FRO... good" />
           </folding>
         </state>
       </provider>
@@ -967,23 +976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Users.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52400833">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#168#169#0" expanded="true" />
-            <element signature="e#196#197#0" expanded="true" />
-            <element signature="e#238#239#0" expanded="true" />
-            <element signature="e#272#273#0" expanded="true" />
-            <element signature="e#306#307#0" expanded="true" />
-            <element signature="e#336#337#0" expanded="true" />
-            <element signature="e#382#383#0" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1007,17 +999,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Vip.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/OrderList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="82" column="75" selection-start-line="82" selection-start-column="75" selection-end-line="82" selection-end-column="75" />
+          <caret line="289" column="5" selection-start-line="289" selection-start-column="5" selection-end-line="289" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2465#2466#0" expanded="true" />
-            <element signature="e#2487#2488#0" expanded="true" />
-            <element signature="e#2542#2543#0" expanded="true" />
-            <element signature="e#2568#2569#0" expanded="true" />
+            <element signature="e#2097#2098#0" expanded="true" />
+            <element signature="e#2155#2156#0" expanded="true" />
+            <element signature="method#ToBigDecimal#0;class#OrderList#0" expanded="false" />
+            <element signature="e#6034#6050#0" expanded="true" />
+            <element signature="e#6530#6546#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Users.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1034,30 +1035,28 @@
     <entry file="file://$PROJECT_DIR$/src/com/company/ExeSQL.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="60" selection-start-line="60" selection-start-column="60" selection-end-line="60" selection-end-column="60" />
+          <caret line="158" column="7" selection-start-line="158" selection-start-column="7" selection-end-line="158" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#deleteSQL#0;class#ExeSQL#0" expanded="false" />
             <element signature="method#updateSQL#0;class#ExeSQL#0" expanded="false" />
-            <marker date="1452666100822" expanded="true" signature="1234:1248" placeholder="select * fro... student" />
-            <marker date="1452666100822" expanded="true" signature="3875:3909" placeholder="select * fro... good" />
-            <marker date="1452666100822" expanded="true" signature="3876:3893" placeholder="SELECT * FRO... good" />
+            <marker date="1452670965514" expanded="true" signature="1234:1248" placeholder="select * fro... student" />
+            <marker date="1452670965514" expanded="true" signature="3875:3909" placeholder="select * fro... good" />
+            <marker date="1452670965514" expanded="true" signature="3876:3893" placeholder="SELECT * FRO... good" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/OrderList.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Vip.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68267226">
-          <caret line="259" column="78" selection-start-line="259" selection-start-column="78" selection-end-line="259" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.64300627">
+          <caret line="85" column="40" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1918#1919#0" expanded="true" />
-            <element signature="e#1976#1977#0" expanded="true" />
-            <element signature="method#ToBigDecimal#0;class#OrderList#0" expanded="false" />
-            <element signature="e#5661#5677#0" expanded="true" />
-            <element signature="e#6157#6173#0" expanded="true" />
-            <element signature="method#GetGoodByBarCode#0;class#OrderList#0" expanded="false" />
+            <element signature="e#2590#2591#0" expanded="true" />
+            <element signature="e#2612#2613#0" expanded="true" />
+            <element signature="e#2667#2668#0" expanded="true" />
+            <element signature="e#2693#2694#0" expanded="true" />
           </folding>
         </state>
       </provider>

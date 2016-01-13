@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -21,8 +22,11 @@ public class OrderList extends JFrame {
     private Container contentPane;
     private JFrame orderList;
     private ArrayList<Goods> GoodList2;
+    private int VipScore;
+    private String VipId;
     Map<String, Double> map; //此时Map中只有5种不重复的Good
     ArrayList<Goods> GiveList;
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");//可以方便地修改日期格式
     OrderList(){
         orderList= new JFrame("购物清单列表");
         orderList.setSize(600, 500);
@@ -67,13 +71,15 @@ public class OrderList extends JFrame {
         });
 
     }
-    OrderList(String VipName){
-        orderList= new JFrame("Vip购物清单:"+VipName+"欢迎您");
+    OrderList(Users users){
+        orderList= new JFrame("Vip购物清单:"+users.getVipName()+"欢迎您");
         orderList.setSize(600, 500);
         orderList.setLocation(300, 200);
         orderList.setVisible(true);
         contentPane=orderList.getContentPane();
         contentPane.setLayout(new BorderLayout());
+        VipScore=users.getVipScore();
+        VipId=users.getVipId();
         J1= new JPanel();
         J2= new JPanel();
         JT1= new JTextArea();
@@ -111,7 +117,9 @@ public class OrderList extends JFrame {
         map = sum(GoodList);
         GiveList=new ArrayList<Goods>();
         Set<String> set = map.keySet();
-        JT1.append("***商店购物清单***");
+        JT1.append("***商店购物清单***\n");
+        String TimeString = dateFormat.format(new java.util.Date());
+        JT1.append("打印时间:"+TimeString+"\n");
         JT1.append("\n");
         for (Iterator<String> iter = set.iterator(); iter.hasNext();)
         {
@@ -205,7 +213,7 @@ public class OrderList extends JFrame {
         return null;
     }
 
-    public void PrintVipOrderList(ArrayList<Goods> GoodList){
+    public int PrintVipOrderList(ArrayList<Goods> GoodList){
         Double DiscountPrice=0.0;  //存打折价
         Double Price=0.0;          //存总价
         Double GivePrice=0.0;      //存赠送商品的总价
@@ -213,7 +221,10 @@ public class OrderList extends JFrame {
         map = Vipsum(GoodList);
         GiveList=new ArrayList<Goods>();
         Set<String> set = map.keySet();
-        JT1.append("***VIP购物清单***");
+        JT1.append("***VIP购物清单***\n");
+        JT1.append("会员编号:"+VipId+"\t\t"+"会员积分"+VipScore+"\n");
+        String TimeString = dateFormat.format(new java.util.Date());
+        JT1.append("打印时间:"+TimeString+"\n");
         JT1.append("\n");
         for (Iterator<String> iter = set.iterator(); iter.hasNext();)
         {
@@ -258,6 +269,24 @@ public class OrderList extends JFrame {
         JT1.append("\n\n");
         JT1.append("总计:"+ToBigDecimal(DiscountPrice)+"(元)\n");
         JT1.append("节省了"+ToBigDecimal(Price-DiscountPrice+GivePrice)+"(元)\n");
+
+        int Score=VipScore;
+        if(VipScore<=200) {
+            for (int i = 0; i < (int) (DiscountPrice / 5); i++) {
+                Score+=1;
+            }
+        }
+        if(VipScore>200&&VipScore<=500) {
+            for (int i = 0; i < (int) (DiscountPrice / 5); i++) {
+                Score+=3;
+            }
+        }
+        if(VipScore>500) {
+            for (int i = 0; i < (int) (DiscountPrice / 5); i++) {
+                Score+=5;
+            }
+        }
+        return Score;
     }
 
 }

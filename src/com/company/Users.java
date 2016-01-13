@@ -6,7 +6,7 @@ package com.company;
 public class Users {
     private String vipId;
     private String vipName;
-
+    private int  vipScore;
     public String getVipId() {
         return vipId;
     }
@@ -21,5 +21,13 @@ public class Users {
 
     public void setVipName(String vipName) {
         this.vipName = vipName;
+    }
+
+    public int getVipScore() {
+        return vipScore;
+    }
+
+    public void setVipScore(int vipScore) {
+        this.vipScore = vipScore;
     }
 }

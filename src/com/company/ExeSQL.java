@@ -163,6 +163,7 @@ public class ExeSQL {
             while (rs.next()) {
                 users.setVipId(rs.getString("Vip_id"));
                 users.setVipName(rs.getString("Name"));
+                users.setVipScore(rs.getInt("Score"));
             }
         } catch (SQLException e) {
             System.out.println("显示时数据库出错。");
