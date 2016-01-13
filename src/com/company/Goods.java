@@ -10,6 +10,15 @@ public class Goods {
     private String unit;         //商品单位
     private Double price;        //商品价格
     private Double discount=1.0; //打折信息
+    private Integer isPromotion;
+
+    public Integer getIsPromotion() {
+        return isPromotion;
+    }
+
+    public void setIsPromotion(Integer isPromotion) {
+        this.isPromotion = isPromotion;
+    }
 
     public Double getDiscount() {
         return discount;

@@ -32,7 +32,7 @@ public class OrderList extends JFrame {
         J1.setSize(300,100);
         JT1.setSize(600,400);
         pane=new JScrollPane(JT1);
-        Commit=new JButton("确认");
+        Commit=new JButton("非会员入口");
         Cancel=new JButton("取消");
         J1.add(Commit);
         J1.add(Cancel);
@@ -57,30 +57,59 @@ public class OrderList extends JFrame {
 
     //打印归类后的OrderList并返回折扣价
     public void PrintOrderList(ArrayList<Goods> GoodList) {
-        Double DiscountPrice=0.0;
-        Double Price=0.0;
-        Map<String, Double> map;
+        Double DiscountPrice=0.0;  //存打折价
+        Double Price=0.0;          //存总价
+        Double GivePrice=0.0;      //存赠送商品的总价
+        int giveNum=0;
+        Map<String, Double> map; //此时Map中只有5种不重复的Good
         map = sum(GoodList);
+        ArrayList<Goods> GiveList=new ArrayList<Goods>();
         Set<String> set = map.keySet();
         JT1.append("***商店购物清单***");
         JT1.append("\n");
         for (Iterator<String> iter = set.iterator(); iter.hasNext();)
         {
+            giveNum=0;
             Goods good=new Goods();
             String key = (String)iter.next();
             good=GetGoodByBarCode(key,GoodList);
             Double value = (Double)map.get(key);
+            if(good.getIsPromotion()==1){
+                giveNum = (int)(value/good.getPrice())/2;
+                for(int i=0;i<giveNum;i++){
+                    GiveList.add(good);
+                }
+            }
             JT1.append("商品BarCode:   "+key+"   "+
                     "名称:   "+good.getName()+"   "+
-                    "数量:   "+(int)(value/good.getPrice())+"   "+
+                    "数量:   "+(int)(value/good.getPrice()+giveNum)+"   "+
                     "单价:   "+good.getPrice()+"   "+
                     "小计:   " + value*good.getDiscount());
             JT1.append("\n");
             DiscountPrice+=value*good.getDiscount();
             Price+=value;
         }
+
+        map = sum(GiveList);
+        set = map.keySet();
+        JT1.append("\n\n");
+        JT1.append("***挥泪赠送商品***\n");
+        for (Iterator<String> iter = set.iterator(); iter.hasNext();){
+            Goods good=new Goods();
+            String key = (String)iter.next();
+            good=GetGoodByBarCode(key,GiveList);
+            Double value = (Double)map.get(key);
+            JT1.append("商品BarCode:   "+key+"   "+
+                    "名称:   "+good.getName()+"   "+
+                    "数量:   "+(int)(value/good.getPrice())+"   "+
+                    "单价:   "+good.getPrice()+"   "+
+                    "小计:   " + value);
+            GivePrice+=value;
+            JT1.append("\n");
+        }
+        JT1.append("\n\n");
         JT1.append("总计:"+DiscountPrice+"(元)\n");
-        JT1.append("节省了"+ToBigDecimal(Price-DiscountPrice)+"(元)\n");
+        JT1.append("节省了"+ToBigDecimal(Price-DiscountPrice+GivePrice)+"(元)\n");
     }
 
     //Double 返回2位
