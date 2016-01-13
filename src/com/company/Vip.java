@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,12 +23,13 @@ public class Vip extends JFrame {
 	private JTextField textField;
 	private final JButton btnNewButton;
 	private final JLabel lblNewLabel;
+	private ArrayList<Goods> GoodList;
 
-	public Vip() {
+	public Vip( ArrayList<Goods> GoodList2) {
+		GoodList=GoodList2;
 		ExeSQL sql1=new ExeSQL();
 		sql1.connSQL();
 		setTitle("VIP支付\n");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(450, 250, 490, 330);
 		this.setResizable(false);
 		contentPane = new JPanel() {
@@ -77,11 +79,22 @@ public class Vip extends JFrame {
 				lblNewLabel.setText("对不起无此会员");
 				}
 				else{
-				lblNewLabel.setText("欢迎您,"+users.getVipName());
+					lblNewLabel.setText("欢迎您,"+users.getVipName());
+					OrderList orderList2=new OrderList(users.getVipName());
+					orderList2.PrintVipOrderList(GoodList);
 				}
 			}
 		});
 
 
 	}
+
+	public ArrayList<Goods> getGoodList() {
+		return GoodList;
+	}
+
+	public void setGoodList(ArrayList<Goods> goodList) {
+		GoodList = goodList;
+	}
+
 }

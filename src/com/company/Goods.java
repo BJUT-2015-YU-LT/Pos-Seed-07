@@ -11,6 +11,7 @@ public class Goods {
     private Double price;        //商品价格
     private Double discount=1.0; //打折信息
     private Integer isPromotion;
+    private Double VipPrice;
 
     public Integer getIsPromotion() {
         return isPromotion;
@@ -58,5 +59,13 @@ public class Goods {
 
     public void setBarcode(String barcode) {
         this.barcode = barcode;
+    }
+
+    public Double getVipPrice() {
+        return VipPrice;
+    }
+
+    public void setVipPrice(Double vipPrice) {
+        VipPrice = vipPrice;
     }
 }

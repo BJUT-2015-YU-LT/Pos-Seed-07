@@ -58,6 +58,7 @@ public class ExeSQL {
                 goods.setPrice(rs.getDouble("price"));
                 goods.setDiscount(rs.getDouble("discount"));
                 goods.setIsPromotion(rs.getInt("isPromotion"));
+                goods.setVipPrice(rs.getDouble("VipPrice"));
                 goodsList.add(goods);
             }
         } catch (SQLException e) {
@@ -142,6 +143,7 @@ public class ExeSQL {
                 goods.setPrice(rs.getDouble("price"));
                 goods.setDiscount(rs.getDouble("discount"));
                 goods.setIsPromotion(rs.getInt("isPromotion"));
+                goods.setVipPrice(rs.getDouble("VipPrice"));
             }
         } catch (SQLException e) {
             System.out.println("显示时数据库出错。");
