@@ -77,7 +77,7 @@ public class Vip extends JFrame {
 				lblNewLabel.setText("对不起无此会员");
 				}
 				else{
-				lblNewLabel.setText("欢迎您,"+users.getVipName());//////
+				lblNewLabel.setText("欢迎您,"+users.getVipName());
 				}
 			}
 		});

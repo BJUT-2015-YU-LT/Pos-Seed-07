@@ -67,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/company/Vip.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.80167013">
-              <caret line="79" column="69" selection-start-line="79" selection-start-column="69" selection-end-line="79" selection-end-column="69" />
+              <caret line="79" column="63" selection-start-line="79" selection-start-column="63" selection-end-line="79" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -724,15 +724,15 @@
       <workItem from="1452525594399" duration="6855000" />
       <workItem from="1452533218971" duration="803000" />
       <workItem from="1452567419647" duration="35444000" />
-      <workItem from="1452651880832" duration="8248000" />
+      <workItem from="1452651880832" duration="8366000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55762000" />
+    <option name="totallyTimeSpent" value="55880000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1065,7 +1065,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/company/Vip.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.80167013">
-          <caret line="79" column="69" selection-start-line="79" selection-start-column="69" selection-end-line="79" selection-end-column="69" />
+          <caret line="79" column="63" selection-start-line="79" selection-start-column="63" selection-end-line="79" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
