@@ -37,6 +37,7 @@ public class OrderList extends JFrame {
         J1= new JPanel();
         J2= new JPanel();
         JT1= new JTextArea();
+        JT1.setBackground(Color.BLACK);
         J1.setSize(300,100);
         JT1.setSize(600,400);
         pane=new JScrollPane(JT1);
@@ -83,6 +84,7 @@ public class OrderList extends JFrame {
         J1= new JPanel();
         J2= new JPanel();
         JT1= new JTextArea();
+        JT1.setBackground(Color.BLACK);
         J1.setSize(300,100);
         JT1.setSize(600,400);
         pane=new JScrollPane(JT1);

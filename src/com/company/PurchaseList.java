@@ -21,11 +21,9 @@ public class PurchaseList extends JFrame  {
         sql1.connSQL();
         goodsList = sql1.GetGoodList();
         purchaseList =new ArrayList<Goods>();
-        jframe=new JFrame("超市购物管理");
+        jframe=new JFrame("模拟POS机");
         JMenuBar jmb=new JMenuBar();
         JMenu menu_shoping=new JMenu("查看购买商品");
-        JMenu menu_user=new JMenu("会员管理");
-        JMenu menu_store=new JMenu("仓库管理");
         JMenu menu_exit=new JMenu("退出");
         JMenu menu_current_user=new JMenu("欢迎您,王维");
         JTable table=new JTable();
@@ -56,8 +54,6 @@ public class PurchaseList extends JFrame  {
 
         jmb.add(menu_current_user);
         jmb.add(menu_shoping);
-        jmb.add(menu_user);
-        jmb.add(menu_store);
         jmb.add(menu_exit);
         jframe.setJMenuBar(jmb);
         jframe.add(J1,BorderLayout.NORTH);
